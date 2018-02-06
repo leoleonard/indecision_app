@@ -1,0 +1,9 @@
+// stworzenie obiektu app, wykorzystanie go do template
+// zrenderowanie obiektow
+// dynamiczne zmienne w template
+// renderowanie warunkowe
+// live-server public
+// babel src/app.js --out-file=public/scripts/app.js --presets=env,react --watch
+// przeksztalca plik src/app.js na public/scripts/app.js - kombatybilny z ES5
+// let - when we reassign the variable
+// const - variable cannot change
