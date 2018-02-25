@@ -1,58 +1,92 @@
-console.log("App.js is running!");
+class IndecisionApp extends React.Component {
+  render() {
+    const title = 'Indecision';
+    const subtitle = 'Put your life together';
+    const options = ['Thing one', 'Thing two', 'Thing three'];
+    return (
+      <div>
+        <Header title={title} subtitle={subtitle} />
+        <Action />
+        <Options options={options} />
+        <AddOption />
+      </div>
+    );
+  }
+}
 
-const app = {
-  title: "Things to do",
-  subtitle: "List of tasks",
-  options: []
-};
 
-const onFormSubmit = (e) => {
-  e.preventDefault();  // strona nie odswieza sie za kazdym razem po wpisaniu tekstu
+class Header extends React.Component {
+  // React.Component - class itself; 
+  // require one method - render;
+  render() {
+    // console.log(this.props) // this - reference to the currenct instance;
+              // props - to the object
+    return (
+      <div>
+      <h1>{this.props.title}</h1>
+      <h2>{this.props.subtitle}</h2>
+      </div>
+    );
+  }
+}
 
-  const option = e.target.elements.option.value;
+class Action extends React.Component {
+  render() {
+    return (
+      <div>
+      <button>What should I do?</button>
+      </div>
+    );
+  }
+}
 
-  if (option) {
-    app.options.push(option);
-     e.target.elements.option.value = "";
-     FormRender();
-   }
-  };
 
-  const onMakeDecision = () => {
-    const randomNum = Math.floor(Math.random() * app.options.length);
-    const option = app.options[randomNum];
-    alert(option);
-    console.log(randomNum);
-  };
-
-  const removeItems = () => {
-    app.options = [];
-    FormRender();
-  };
-
-const appRoot = document.getElementById("app");
-
-const FormRender = () => {
-  const template = (
-    <div>
-      <h1>{app.title}</h1>
-      {app.subtitle && <p>{app.subtitle}</p>}
-      <p>{app.options.length > 0 ? "Here are your options" : "There are no options now"}</p>
-      <button disabled={app.options.length == 0} onClick={onMakeDecision}>What should I do?</button>
-      <button onClick={removeItems}>Remove all</button>
-      <ol>
+class Options extends React.Component {
+  render() {
+    return (
+      <div>
         {
-        app.options.map((option) => <li key={option}>{option}</li>)
+          // this.props.options.map((option) => <p key={option}>{option}</p>)
+          this.props.options.map((option) => <Option key={option} optionText={option} />) // instance of option
         }
-      </ol>
-      <form onSubmit={onFormSubmit}>
-        <input type="text" name="option" />
-        <button>Add Option</button>
-      </form>
-    </div>
-  );
+      </div>
+    );
+  }
+}
 
-  ReactDOM.render(template, appRoot);
-};
 
-FormRender();
+// nested class
+class Option extends React.Component {
+  render() {
+    return (
+      <div>
+      {this.props.optionText}
+      </div>
+      );
+  }
+}
+
+// Option -> option component here
+
+class AddOption extends React.Component {
+  render() {
+    return (
+      <div>
+        <p>AddOption here</p>
+      </div>
+    );
+  }
+}
+
+// where things appeat on the website - jsx (where they get render)
+// const jsx = (
+//   <div>
+//     <Header />
+//     <Action />
+//     <Options />
+//     <AddOption />
+//   </div>
+// );
+
+// ReactDOM.render(jsx, document.getElementById('app'));
+ReactDOM.render(<IndecisionApp />, document.getElementById('app'));
