@@ -7,3 +7,4 @@
 // przeksztalca plik src/app.js na public/scripts/app.js - kombatybilny z ES5
 // let - when we reassign the variable
 // const - variable cannot change
+// 
