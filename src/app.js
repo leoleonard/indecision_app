@@ -1,3 +1,16 @@
+// const obj = {
+//   name: "Susan",
+//   getName() {
+//     return this.name;
+//   }
+// };
+
+// const getName = obj.getName.bind(obj);
+// // bind - first argument set as a 'this' concect
+// // prevent loosing 'this' bounding by reseting the context
+
+// console.log(getName());
+
 class IndecisionApp extends React.Component {
   render() {
     const title = 'Indecision';
@@ -44,8 +57,14 @@ class Action extends React.Component {
 }
 
 class Options extends React.Component {
+  constructor(props) {
+    // props == this; bounding 'this; in the constructor (instead of in the line every time)
+    super(props);
+    this.handleRemoveAll = this.handleRemoveAll.bind(this);
+  }
   handleRemoveAll() {
-    alert('remove all options');
+    console.log(this.props.options);
+    // alert('remove all options');
   }
   render() {
     return (
