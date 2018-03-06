@@ -11,6 +11,8 @@
 
 // console.log(getName());
 
+// component state - managing the state of the data + re-render
+
 class IndecisionApp extends React.Component {
   render() {
     const title = 'Indecision';
