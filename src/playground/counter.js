@@ -51,6 +51,8 @@ class Counter extends React.Component {
   }
 }
 
+
+// określa domyślną wartość
 Counter.defaultProps = {
   count: 0
 };
