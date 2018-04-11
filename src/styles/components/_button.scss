@@ -7,13 +7,21 @@
     color: white;
     font-weight: bold;
     font-size: $l-size;
-    margin-bottom: $xl-size;
+    margin-bottom: $m-size;
+    // margin-bottom: $xl-size;
     padding: 2.4rem;
     width: 100%;
 }
 
 .big-button:disabled {
     opacity: .5;
+}
+
+
+@media (min-width: $deskop-breakpoint) {
+    .big-button {
+        margin-bottom: $xl-size;
+    }
 }
 
 // Button 
