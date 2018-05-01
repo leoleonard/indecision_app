@@ -6,7 +6,6 @@ module.exports = {
     // path: path.join(__dirname, 'public'),
     path: "/",
     filename: 'bundle.js',
-    publicPath: "/indecision-app/",
   },
   module: {
       rules: [{
