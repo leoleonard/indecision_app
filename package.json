@@ -1,12 +1,15 @@
 {
   "name": "react-course",
   "version": "1.0.0",
-  "description": "",
+  "description": "indecision app",
+  "homepage": "https://github.com/leoleonard/react-course/",
   "main": "index.js",
   "scripts": {
     "server": "live-server public/",
     "build": "webpack --watch",
-    "dev-server": "webpack-dev-server"
+    "dev-server": "webpack-dev-server",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "repository": {
     "type": "git",
@@ -18,7 +21,6 @@
   "bugs": {
     "url": "https://github.com/leoleonard/react-course/issues"
   },
-  "homepage": "https://github.com/leoleonard/react-course#readme",
   "dependencies": {
     "babel-cli": "6.24.1",
     "babel-core": "6.25.0",
@@ -38,5 +40,9 @@
     "validator": "8.0.0",
     "webpack": "3.1.0",
     "webpack-dev-server": "2.5.1"
+  },
+  "devDependencies": {
+    "react-scripts": "1.1.0",
+    "gh-pages": "^1.1.0"
   }
 }
